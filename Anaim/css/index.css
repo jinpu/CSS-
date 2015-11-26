@@ -1,0 +1,103 @@
+/*公共样式开始*/
+body,figure,h2,p,img,figcaption {margin: 0px;padding: 0px;}
+figure img{opacity: 0.8;}
+/*给所有的p标签的所有属性设置动画时间*/
+figure figcaption p,h2,span,div{transition:all 0.35s;}
+/*给图片设置动画*/
+figure img{transition: all 0.35s}
+/*公共样式结束*/
+
+
+figure{
+    position: relative;
+    width: 33.33%;
+    overflow: hidden;
+    height: 350px;
+    float: left;
+}
+
+/*当父元素设置了relative位置时，子元素的absolute位置时相对于父元素的位置*/
+figcaption{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: #FFF;
+}
+/*响应式布局*/
+/*当浏览器最小宽度大于1001px*/
+@media screen and (min-width: 1001px) and (min-width: 601px){
+    figure{width: 33.33%;}
+}
+/*当浏览器最大宽度小于1000px*/
+@media screen and (max-width: 1000px){
+    figure{width: 50%;}
+}
+/*当浏览器最大宽度小于600px*/
+@media screen and (max-width: 600px){
+    figure{width: 100%;}
+}
+
+.test1{background: #2F0000;}
+/*将所有的p标签向左移动到屏幕之外（不显示，但仍然存在），为动画作准备*/
+.test1 figcaption p{background: #FFF;color: #333;margin: 5px;text-align: center;
+     transform: translate(-120px,0px);
+}
+/*为每一个p标签设置动画延时*/
+.test1 figcaption p:nth-of-type(1){transition-delay: 0.05s;}
+.test1 figcaption p:nth-of-type(2){transition-delay: 0.1s;}
+.test1 figcaption p:nth-of-type(3){transition-delay: 0.15s;}
+
+.test1 figcaption{padding: 20px;}
+/*鼠标进入时p标签回复初始位置*/
+.test1:hover figcaption p{
+    transform: translate(0px,0px);
+}
+/*图片向左移动50px，并改变透明度为0.5*/
+.test1:hover img{transform: translate(-50px,0);opacity: 0.5}
+
+
+/*设置最终位置*/
+.test2{background: #2F0000;}
+.test2 figcaption{width: 100%;height: 100%;}
+.test2 figcaption h2{margin-top:15%;margin-left: 15%;}
+.test2 figcaption p{margin-left: 20%;transform: translate(0px,50px);opacity: 0;}
+.test2 figcaption div{border: 2px solid white;width: 80%;height: 80%;top:10%;left:10%;position: absolute;
+           transform: translate(0px,-350px) rotate(0deg);
+}
+/*设置动画*/
+.test2:hover figcaption div{transform: translate(0px,0px) rotate(360deg);ransition-duration: 5s}
+.test2:hover figcaption p{transform: translate(0px,0px);opacity: 1;}
+.test2:hover img{transform: translate(-50px,0);opacity: 0.5;}
+
+
+.test3{background: #2F0000;}
+.test3 figcaption{width: 100%;height: 100%;}
+.test3 figcaption div{border: 2px solid white;width: 80%;height: 80%;top:10%;left:10%;position: absolute;
+transform: scale(1.2,1.2);opacity: 0;}
+.test3 figcaption h2{margin-top: 15%;margin-left: 15%;transform: scale(1.2,1.2);opacity: 0;}
+.test3 figcaption p{margin-left: 15%;transform: scale(1.2,1.2);opacity: 0;}
+.test3:hover figcaption div{transform: scale(1,1) rotateY(180deg);opacity: 1;transition-duration: 5s;}
+.test3:hover img{opacity: 0.5;transform: scale(1.2,1.2);}
+.test3:hover figcaption h2{transform: scale(1,1);opacity: 1;}
+.test3:hover figcaption p{transform: scale(1,1);opacity: 1;}
+
+
+/* #字格动画 */
+.test4{background: #2F0000;}
+.test4 figcaption{width: 100%;height: 100%;}
+.test4 figcaption h2{margin-top:15%;margin-left: 15%;scale(0,1);opacity: 0;}
+.test4 figcaption p{margin-left: 20%;transform: translate(0px,50px) scale(0,1);opacity: 0;}
+.test4 figcaption .div1{
+    border-top: 2px solid white;border-bottom: 2px solid white;width: 90%;height: 80%;
+    top:10%;left:5%;position: absolute;transform: scale(0,1);opacity: 0;
+}
+.test4:hover figcaption .div1{transform: scale(1,1);opacity: 1;}
+.test4 figcaption .div2{
+    border-left: 2px solid white;border-right: 2px solid white;width: 80%;height: 90%;
+    top:5%;left:10%;position: absolute;transform: scale(1,0);opacity: 0;
+}
+.test4:hover figcaption .div2{transform: scale(1,1);opacity: 1;}
+.test4:hover  p{transform: translate(0px,0px) scale(1,1);opacity: 1;}
+.test4:hover  h2{transform: scale(1,1);opacity: 1;}
+.test4:hover img{opacity:0.5;}
+
